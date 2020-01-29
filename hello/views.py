@@ -1,9 +1,10 @@
 import re
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from datetime import datetime
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.views.generic import ListView
+import pytz
 
 from hello.forms import LogMessageForm
 from hello.models import LogMessage
@@ -68,3 +69,11 @@ def log_message(request):
             return redirect("home")
     else:
         return render(request, "hello/log_message.html", {"form": form})
+
+
+def set_timezone(request):
+    if request.method == 'POST':
+        request.session['django_timezone'] = request.POST['timezone']
+        return redirect('/')
+    else:
+        return render(request, 'hello/set_timezone.html', {'timezones': pytz.common_timezones})
