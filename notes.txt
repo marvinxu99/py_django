@@ -1,2 +1,6 @@
 (1) Django Tutorial in Visual Studio Code:
 https://code.visualstudio.com/docs/python/tutorial-django
+
+
+(2) Django documentation 
+https://docs.djangoproject.com/en/3.0/
