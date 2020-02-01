@@ -68,7 +68,14 @@ def log_message(request):
             message.save()
             return redirect("home")
     else:
-        return render(request, "hello/log_message.html", {"form": form})
+        return render(
+            request,
+            "hello/log_message.html",
+            {
+                'form': form,
+                'value_tm': datetime.now()
+            }
+        )
 
 
 def set_timezone(request):

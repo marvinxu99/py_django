@@ -16,4 +16,12 @@ Set timezone
     </select>
     <input type="submit" value="Set">
 </form>
+
+{% timezone "Europe/Paris" %}
+Paris time: {{ value_tm }}
+{% endtimezone %}
+{% timezone None %}
+Server time: {{ value_tm }}
+{% endtimezone %}
+
 {% endblock %}
